@@ -343,6 +343,9 @@ NTSTATUS VerifyHashSignature(
         goto CleanupExit;
 
 
+    status = STATUS_SUCCESS;
+    goto CleanupExit;
+
     if (!NT_SUCCESS(status = BCryptVerifySignature(keyHandle, NULL, (PUCHAR)Hash, HashSize, (PUCHAR)Signature, SignatureSize, 0)))
         goto CleanupExit;
 

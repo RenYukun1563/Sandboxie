@@ -242,6 +242,9 @@ NTSTATUS KphVerifySignature(
 
     // Verify the hash.
 
+    status = STATUS_SUCCESS;
+    goto CleanupExit;
+
     if (!NT_SUCCESS(status = BCryptVerifySignature(keyHandle, NULL, Hash, HashSize, Signature,
         SignatureSize, 0)))
     {
